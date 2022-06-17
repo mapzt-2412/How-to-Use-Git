@@ -15,6 +15,9 @@
 - [15. Submodule](#15-submodule)
 - [16. Git tool, extension](#16-git-tool-extension)
 # 1. Introduction
+Git là 1 hệ thống quản lý phiên bản được các dev trên khắp thế giới sử dụng. Nó giúp bạn theo dõi những phiên bản khác nhau của code cũng như hợp tác với những dev khác
+Nếu bạn đang phải OT trong 1 dự án nào đó, có thể bạn muốn theo dõi những điều chỉnh được thực hiện trên code, bởi ai, khi nào. Điều này càng trở nên quan trọng hơn nếu bạn gặp bug. Git có thể giúp đỡ bạn trong hoàn cảnh đó.
+Vai trò của Git là cực kỳ quan trọng nếu như bạn muốn làm việc chung với những dev khác trong 1 dự án nào đó hoặc chính dự án của bạn.
 # 2. Working tree, repository,
 # 3. Index definition
 # 4. Git tree, Branches
@@ -23,10 +26,34 @@
 # 7. Pull/merge request
 # 8. Conflict resolve when merge
 # 9. Conflict resolve when pull
+Khi thực hiện pull, conflict sẽ xảy ra khi:
+-Sửa đổi một tệp trong thư mục làm việc và commit
+-Sửa đổi một tệp trong kho lưu trữ từ xa và commit
+-Thực hiện git pull => Sẽ xảy ra xung đột
 # 10. Revert, Reset
 # 11. Gitlab, Github
 # 12. Other VSC tool
 # 13. Conventional commits
+Conventional Commits là một bộ quy tắc viết commit message sinh ra với mục đích để cả người đọc được và các công cụ máy tính có thể tìm kiếm. Nó cung cấp một bộ quy tắc dễ dàng để tạo lịch sử commit rõ ràng.
+CC có thể viết dưới dạng:
+		<type>[optional scope]: <description>
+  			  [optional body]
+  			  [optional footer(s)]
+Các thành phần type, description là bắt buộc cần có trong commit message, optional là tùy chọn có hoặc không có cũng được
+
+type: từ khóa để phân loại commit là feature, fix bug, refactor.
+scope: cũng được dùng để phân loại commit, vùng ảnh hưởng của commit, trả lời câu hỏi: commit này refactor|fix cái gì? được đặt trong cặp ngoặc đơn ngay sau type. VD: feat(authentication):, fix(parser):
+description: là mô tả ngắn về những gì sẽ bị sửa đổi trong commit đấy
+body: là mô tả dài và chi tiết hơn, cần thiết khi description chưa thể nói rõ hết được, có thể thêm phần ghi chú bằng các keyword
+footer: một số thông tin mở rộng như số ID của pull request, issue.. được quy định theo conventional
+
+Một số type phổ biến như: feat, fix, refactor, docs,....
+Examples:
+feat(lang): add English language
+fix: fix header dashboard page
+fix: prevent racing of requests
+Introduce a request id and a reference to the latest request. Dismiss incoming responses other than from the latest request.
+Refs: #123
 # 14. Branching models
 # 15. Submodule
 # 16. Git tool, extension
