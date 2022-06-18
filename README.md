@@ -45,6 +45,8 @@ Vai trò của Git là cực kỳ quan trọng nếu như bạn muốn làm vi�
 
 
 # 7. Pull/merge request
+Pull request được tạo ra để đưa những file source code lên 1 host chung nơi mọi người có quyền truy cập sẽ truy cập vào và cùng review, để lại comment trên những file source code đó.
+Sau khi push những thay đổi về những file source code lên trên nhánh => click vào Compare & pull request button => click Create pull request để mở một pull request
 # 8. Conflict resolve when merge
 # 9. Conflict resolve when pull
 Khi thực hiện pull, conflict sẽ xảy ra khi:
