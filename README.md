@@ -53,6 +53,19 @@ Khi thực hiện pull, conflict sẽ xảy ra khi:
 -Thực hiện git pull => Sẽ xảy ra xung đột
 # 10. Revert, Reset
 # 11. Gitlab, Github
++ GitLab là một trình quản lý kho Git dựa trên Internet. Đó là một máy chủ đơn giản, hiện đại. GitLab là một mã nguồn mở và hoàn toàn miễn phí, cung cấp công cụ quản lý dự án như Heat Tracker, Nhóm giai đoạn, Vấn đề, Lộ trình,... 
+để đơn giản hoá quy trình làm việc hợp tác cho toàn bộ chu trình phát triển phần mềm. Đây là cách hiệu quả để lưu trữ trên máy chủ, người dùng có thể kiểm soát và quản lý. Giống với GitHub, nhưng có vài tính năng bổ sung như GitHub, Google Code, Bitbucket… 
++ Github là một dịch vụ quản lý kho dựa trên web và kho lưu trữ mã nguồn lớn nhất trên thế giới. 
+Là nơi tập hợp một trong những nhà phát triển lớn nhất để hợp tác với các dự án phát triển phần mềm. 
+Đây là kho lưu trữ mã lớn nhất thế giới cho phép người dùng phát triển, chia sẻ và đóng góp các dự án nguồn mở được viết bằng hơn 300 ngôn ngữ lập trình độc đáo. 
+Đây là nơi quan trọng để phát triển phần mềm, dịch vụ lý tưởng cho hợp tác làm việc nhóm giữa các developers cũng như cải thiện quy trình phát triển phần mềm.
+
+|                         GitLab                          |                      GitHub                           |
+|:-------------------------------------------------------:|:-----------------------------------------------------:|
+| Owned by GitLab Inc                                     | Owned by Microsoft Corporation                        |
+| Open-source for community edition                       | Not open-source                                       |
+| Provides user to see project development charts         | Doesn't have charts yet but can check commit history  |
+
 # 12. Other VSC tool
 |                           Git                           |          Concurrent version system (CVS)          |
 |:-------------------------------------------------------:|:-------------------------------------------------:|
