@@ -2,12 +2,19 @@
 - [2. Working tree, repository,](#2-working-tree-repository)
 - [3. Index definition](#3-index-definition)
 - [4. Git tree, Branches](#4-git-tree-branches)
+	- [4.1 Git tree](#41-git-tree)
+	- [4.2 Branches](#42-branches)
 - [5. Add, Commit, Merge, Stash](#5-add-commit-merge-stash)
 - [6. Fetch, pull, push](#6-fetch-pull-push)
+	- [6.1 Fetch](#61-fetch)
+	- [6.2 Pull](#62-pull)
+	- [6.3 Push](#63-push)
 - [7. Pull/merge request](#7-pullmerge-request)
 - [8. Conflict resolve when merge](#8-conflict-resolve-when-merge)
 - [9. Conflict resolve when pull](#9-conflict-resolve-when-pull)
-- [10. Revert, Reset](#10-revert-reset)
+- [10. Reset, Revert](#10-reset-revert)
+	- [10.1. Reset](#101-reset)
+	- [10.2. Revert](#102-revert)
 - [11. Gitlab, Github](#11-gitlab-github)
 - [12. Other VSC tool](#12-other-vsc-tool)
 - [13. Conventional commits](#13-conventional-commits)
@@ -68,7 +75,39 @@ Khi thực hiện pull, conflict sẽ xảy ra khi:
 -Sửa đổi một tệp trong thư mục làm việc và commit
 -Sửa đổi một tệp trong kho lưu trữ từ xa và commit
 -Thực hiện git pull => Sẽ xảy ra xung đột
-# 10. Revert, Reset
+# 10. Reset, Revert
+## 10.1. Reset
+- Khi chúng ta làm sai ở một vài commit gần và muốn quay trở lại để thay đổi toàn bộ những thay đổi trong những commit trước đó. Thì chúng ta nên sử dụng reset.
+- Git reset được sử dụng để quay lại một điểm commit nhất định và xóa lịch sử của các lần commit trước đó.
+- `git reset [--mixed | --soft | --hard | --merge | --keep] [-q] [<commit>]`
+- `git reset --soft [<commit>]` : Chi thay đổi commit history.
+- `git reset --mixed [<commit>]` : Thay đổi commit history và index.
+- `git reset --hard [<commit>]` : Xóa hoàn toàn các commit.
+- `git reset --merge [<commit>]` : Giống như `hard` nhưng không thực hiện khi có thay đổi mới mà chưa commit trên worktree và index.
+- `git reset --keep [<commit>]` : giống như `hard` nhưng khi có thay đổi trên index thì sẽ không được thực hiện.
+
+{@vimeo: https://vimeo.com/721753242}
+
+- Một vài trường hợp dùng git reset khác :
+  - Nếu bạn đã dùng lệnh git add để cập nhật thay đổi vào vùng staging, bạn có thể hủy thao tác này bằng cách thực hiện lệnh:
+	```git
+	git reset
+	```
+  - Nếu muốn hủy một file nào đó trong vùng staging chứ không phải toàn bộ thì dùng lệnh
+	```git
+	git reset -- filename
+	```
+## 10.2. Revert
+- Revert được giống trong trường hợp giống reset nhưng cách thức hoạt động nó khác nhau. Revet thì không xóa các commit như reset mà nó sẽ tạo thêm 1 commit mới và giống với commit mà muốn thay đổi và chỉ động đến file cần thay đổi không liên quan đến file khác.
+- `git revert [--[no-]edit] [-n] [-m parent-number] [<commit>]
+`
+- `<commit>`: Tùy chọn commit được sử dụng để revert một commit. Để revert một commit, chúng ta cần id tham chiếu commit.
+- `<–edit>`: Nó được sử dụng để chỉnh sửa tin nhắn commit trước khi revert  commit. 
+- `-m parent-number / – mainline parent-number`: nó được sử dụng để hoàn lại việc hợp nhất(merge). Nói chung, chúng ta không thể hoàn lại một hợp nhất(merge) vì chúng ta không biết mặt nào của hợp nhất(merge) nên được coi là nhánh chính để merge. Chúng ta có thể chỉ định parent-number và cho phép hoàn lại để đảo ngược thay đổi liên quan đến parent đã chỉ định.
+- `-n / – no-commit`: Nói chung, đây là lệnh hoàn lại commit theo mặc định. Tùy chọn không commit sẽ không tự động commit. Ngoài ra, nếu tùy chọn này được sử dụng, chỉ mục(index) của bạn không phải khớp với commit HEAD.
+
+{@vimeo: https://vimeo.com/721753441}
+
 # 11. Gitlab, Github
 + GitLab là một trình quản lý kho Git dựa trên Internet. Đó là một máy chủ đơn giản, hiện đại. GitLab là một mã nguồn mở và hoàn toàn miễn phí, cung cấp công cụ quản lý dự án như Heat Tracker, Nhóm giai đoạn, Vấn đề, Lộ trình,... 
 để đơn giản hoá quy trình làm việc hợp tác cho toàn bộ chu trình phát triển phần mềm. Đây là cách hiệu quả để lưu trữ trên máy chủ, người dùng có thể kiểm soát và quản lý. Giống với GitHub, nhưng có vài tính năng bổ sung như GitHub, Google Code, Bitbucket… 
@@ -77,19 +116,19 @@ Là nơi tập hợp một trong những nhà phát triển lớn nhất để h
 Đây là kho lưu trữ mã lớn nhất thế giới cho phép người dùng phát triển, chia sẻ và đóng góp các dự án nguồn mở được viết bằng hơn 300 ngôn ngữ lập trình độc đáo. 
 Đây là nơi quan trọng để phát triển phần mềm, dịch vụ lý tưởng cho hợp tác làm việc nhóm giữa các developers cũng như cải thiện quy trình phát triển phần mềm.
 
-|                         GitLab                          |                      GitHub                           |
-|:-------------------------------------------------------:|:-----------------------------------------------------:|
-| Owned by GitLab Inc                                     | Owned by Microsoft Corporation                        |
-| Open-source for community edition                       | Not open-source                                       |
-| Provides user to see project development charts         | Doesn't have charts yet but can check commit history  |
+|                     GitLab                      |                        GitHub                        |
+| :---------------------------------------------: | :--------------------------------------------------: |
+|               Owned by GitLab Inc               |            Owned by Microsoft Corporation            |
+|        Open-source for community edition        |                   Not open-source                    |
+| Provides user to see project development charts | Doesn't have charts yet but can check commit history |
 
 # 12. Other VSC tool
 |                           Git                           |          Concurrent version system (CVS)          |
-|:-------------------------------------------------------:|:-------------------------------------------------:|
-| Distributed vsc                                         | Centralized vsc                                   |
-| Operations are atomic                                   | Operations are not atomic                         |
-| Changes are per project                                 | Changes are per file                              |
-| Have index (staging area)                               | Do not have index                                 |
+| :-----------------------------------------------------: | :-----------------------------------------------: |
+|                     Distributed vsc                     |                  Centralized vsc                  |
+|                  Operations are atomic                  |             Operations are not atomic             |
+|                 Changes are per project                 |               Changes are per file                |
+|                Have index (staging area)                |                 Do not have index                 |
 | The repository are committed into the local repository. | The repository are committed into central server. |
 # 13. Conventional commits
 Conventional Commits là một bộ quy tắc viết commit message sinh ra với mục đích để cả người đọc được và các công cụ máy tính có thể tìm kiếm. Nó cung cấp một bộ quy tắc dễ dàng để tạo lịch sử commit rõ ràng.
@@ -114,4 +153,21 @@ Introduce a request id and a reference to the latest request. Dismiss incoming r
 Refs: #123
 # 14. Branching models
 # 15. Submodule
+- Trong môi trường phát triển phần mềm, phát triển các dự án lớn, chúng ta không thể gộp tất cả vào một repository trên gitlab hay github được, mà chia thành nhiều module lớn nhỏ khác nhau rồi trong project chính sẽ tiến hành clone source từ các module đó về để chạy.
+- Để thêm một submodule vào project ta sử dụng:
+  - `$ git submodule add <repository> [<path>]`
+- Khi cần cập nhập module, ta dùng lệnh :
+  - `$ git submodule update [--init]`
+  - Lựa chọn --init sẽ cho phép ta cập nhập các module chưa được lấy về. Ví như ở máy tính của bạn, bạn chạy lệnh add để lấy repo về rồi, thì không cần --init nữa. Còn ở các máy tính khác, repo chưa được lấy về, thì ta cần phải thêm lựa chọn này. Tức là repo phải có sẵn trong máy rồi mới update được.
+- Ngoài ra, với các dự án mới khi được tải về thì các module sẽ không tự động tải về mà ta phải tải repo chính rồi chạy lệnh cập nhập thì mới được. Tuy nhiên, sự thật không phũ phàng tới vậy, ngay ở lệnh tải về ta có thể lấy ngay được về các module với lựa chọn --recursive
+- `$ git clone --recursive <repository> `
+- Ưu điểm
+  - Hạn chế sai sót, thiếu sót mỗi khi cần thêm hay cập nhật gì
+  - Có thể chỉnh sửa code trong submodule từ các module con rồi push thẳng lên chứ ko cần phải vào đúng repo của submodule mới sửa được rồi push lên, rồi mấy module kia mới được pull về.
+  - Đỡ tốn thời gian xóa rồi import/add reference thư viện lại
+- Nhược điểm
+  - Luôn phải pull submodule sau khi có thay đổi gì đó trên submodule (nhưng nếu setup recursive thì khỏi lo)
+  - Chiếm dung lượng ổ cứng do khi pull code về thì trong mỗi module đều phải có thư mục code của thư viện chung đó
+
+{@vimeo: https://vimeo.com/721753759}
 # 16. Git tool, extension
