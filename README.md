@@ -21,6 +21,23 @@ Vai trò của Git là cực kỳ quan trọng nếu như bạn muốn làm vi�
 # 2. Working tree, repository,
 # 3. Index definition
 # 4. Git tree, Branches
+## 4.1 Git tree
++Git Tree là một dạng cấu trúc đồ thị có hướng dùng để xem lại lịch sử các commit của repository một cách trực quan. Trong đó, Git Tree bao gồm các nhánh đại diện cho các branches, mỗi một node là đại diện cho một lần commit.
+Trong mỗi node commit sẽ chứa các thông tin liên quan đến lần commit này như commit id, author, message commit, thời gian commit,...
+Nhờ có Git Tree, các developers có thể nắm bắt toàn bộ quá trình thay đổi, phân branches, gộp branches, các file đã thêm, đã xoá,... qua đó giúp quá trình quản lý file trong repo được tối ưu nhất có thể.</br>
++ Câu lệnh xem Git Tree: <code>git log –graph</code>
+## 4.2 Branches
++ Git là hệ thống làm việc nhiều người. Nếu tất cả đều hoạt động chung một kho lưu trữ, những xung đột sẽ thường xuyên xảy ra (trùng tên file, tên lớp,...). Việc nhiều thành viên đảm nhận các công việc khác nhau và lưu trữ trong một kho chung sẽ rất khó quản lý, thiếu tính hệ thống và hiệu suất không cao.
++ Branch là nhánh ghi lại luồng lịch sử làm việc. Tương ứng với mỗi nhiệm vụ mà từng thành viên sẽ tạo một branch và làm việc trên branch đó. Sự phân nhánh này giúp các công việc của các thành viên trở nên có hệ thống và không làm ảnh hưởng đến branch khác, tiến hành đồng thời nhiều thay đổi trên một repo. Ta cũng có thể di chuyển qua lại giữa các branch.
++ Có hai loại branch: integration branch (branch tích hợp) và topic branch (branch chủ đề):
+ + Integration branch: branch chính của dự án, có thể tạo ra bản phát hành. Được sử dụng như là nguồn phân branch nên cần duy trì trạng thái ổn định.
+ + Topic branch: branch chủ đề, là branch tạo ra nhằm tiến hành công việc riêng biệt như chỉnh sửa lỗi, thêm chức năng,...
++ Các câu lệnh thao tác với branch:
+ + <code>git branch</code>: liệt kê tất cả branch hiện có trong git repository.
+ + <code>git branch<new_branch></code>: tạo branch mới có tên new_branch.
+ + <code>git checkout<branch_name></code>: di chuyển đến branch có tên branch_name.
+ + <code>git checkout -b<new_branch></code>: tạo branch mới có tên new_branch và di chuyển đến branch này.
+ + <code>git branch -d<branch_name></code>: xóa branch có tên branch_name.
 # 5. Add, Commit, Merge, Stash
 # 6. Fetch, pull, push
 ## 6.1 Fetch
