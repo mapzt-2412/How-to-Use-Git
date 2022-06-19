@@ -86,7 +86,11 @@ Khi thực hiện pull, conflict sẽ xảy ra khi:
 - `git reset --merge [<commit>]` : Giống như `hard` nhưng không thực hiện khi có thay đổi mới mà chưa commit trên worktree và index.
 - `git reset --keep [<commit>]` : giống như `hard` nhưng khi có thay đổi trên index thì sẽ không được thực hiện.
 
-{@vimeo: https://vimeo.com/721753242}
+
+
+https://user-images.githubusercontent.com/73237028/174479721-37ab87eb-885f-4a0d-84da-f5feee7f3048.mp4
+
+
 
 - Một vài trường hợp dùng git reset khác :
   - Nếu bạn đã dùng lệnh git add để cập nhật thay đổi vào vùng staging, bạn có thể hủy thao tác này bằng cách thực hiện lệnh:
@@ -106,7 +110,9 @@ Khi thực hiện pull, conflict sẽ xảy ra khi:
 - `-m parent-number / – mainline parent-number`: nó được sử dụng để hoàn lại việc hợp nhất(merge). Nói chung, chúng ta không thể hoàn lại một hợp nhất(merge) vì chúng ta không biết mặt nào của hợp nhất(merge) nên được coi là nhánh chính để merge. Chúng ta có thể chỉ định parent-number và cho phép hoàn lại để đảo ngược thay đổi liên quan đến parent đã chỉ định.
 - `-n / – no-commit`: Nói chung, đây là lệnh hoàn lại commit theo mặc định. Tùy chọn không commit sẽ không tự động commit. Ngoài ra, nếu tùy chọn này được sử dụng, chỉ mục(index) của bạn không phải khớp với commit HEAD.
 
-{@vimeo: https://vimeo.com/721753441}
+https://user-images.githubusercontent.com/73237028/174479676-7e583204-200a-472e-8b44-691849e5a273.mp4
+
+
 
 # 11. Gitlab, Github
 + GitLab là một trình quản lý kho Git dựa trên Internet. Đó là một máy chủ đơn giản, hiện đại. GitLab là một mã nguồn mở và hoàn toàn miễn phí, cung cấp công cụ quản lý dự án như Heat Tracker, Nhóm giai đoạn, Vấn đề, Lộ trình,... 
@@ -169,5 +175,7 @@ Refs: #123
   - Luôn phải pull submodule sau khi có thay đổi gì đó trên submodule (nhưng nếu setup recursive thì khỏi lo)
   - Chiếm dung lượng ổ cứng do khi pull code về thì trong mỗi module đều phải có thư mục code của thư viện chung đó
 
-{@vimeo: https://vimeo.com/721753759}
+
+https://user-images.githubusercontent.com/73237028/174479487-a30c600f-b34b-4bea-8a2c-40388021d1d4.mp4
+
 # 16. Git tool, extension
