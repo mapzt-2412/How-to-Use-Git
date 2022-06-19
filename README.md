@@ -26,7 +26,17 @@ Git là 1 hệ thống quản lý phiên bản được các dev trên khắp th
 Nếu bạn đang phải OT trong 1 dự án nào đó, có thể bạn muốn theo dõi những điều chỉnh được thực hiện trên code, bởi ai, khi nào. Điều này càng trở nên quan trọng hơn nếu bạn gặp bug. Git có thể giúp đỡ bạn trong hoàn cảnh đó.
 Vai trò của Git là cực kỳ quan trọng nếu như bạn muốn làm việc chung với những dev khác trong 1 dự án nào đó hoặc chính dự án của bạn.
 # 2. Working tree, repository,
+## 2.1 Working tree
+Trên Git, những thư mục được đặt dưới sự quản lý của Git mà mọi người đang thực hiện công việc trong thực tế được gọi là working tree, nơi user edit, tạo file mới.
+## 2.2 Repository
+Là nơi lưu trạng thái của folder và file. Trạng thái được lưu lại đang được chứa như là lịch sử thay đổi của nội dung. Bằng việc đặt thư mục muốn quản lý lịch sử thay đổi dưới sự quản lý của repository, có thể ghi chép lại lịch sử thay đổi của thư mục và file trong thư mục đó. Có hai loại kho lưu trữ trong Git là Local Repository và Remote Repository.
+- **Local Repository**: là một loại repository được lưu trên máy tính cá nhân, repository này có thể đồng bộ hóa với remote repository bằng các lệnh của git. Bạn có thể tạo "commit" để lưu lại nhưng chưa thể dùng để chia sẻ tới người khác được.
+- **Server repository**: Là repository nhưng được lưu tại server của các hosting-service sử dụng Git. Một số hosting-service như: Github, Gitlab... Repository này có thể dùng để share tới những người khác để họ có quyền truy cập và lấy source code về. Để tạo server repository, bạn đơn giản truy cập vào trang web của hosting-service bạn dùng và thực hiện qua vài cú click tùy nhà cung cấp dịch vụ.</br>
+**LÀM VIỆC VỚI REPOSITORY:**
+- Để tạo một repository trên máy, ta chỉ cần tạo 1 folder chứa source, rồi thực hiện câu lệnh: <code>git init</code>
+- Tạo 1 local repository từ server repository, di chuyển đến nơi chúng ta muốn server repository được đặt, sau đó chạy câu lệnh: <code>git clone {repositoryUrl}</code>
 # 3. Index definition
+Là một vùng giữa repository và working tree. Được sử dụng để thiết lập một tập hợp các thay đổi.
 # 4. Git tree, Branches
 ## 4.1 Git tree
 +Git Tree là một dạng cấu trúc đồ thị có hướng dùng để xem lại lịch sử các commit của repository một cách trực quan. Trong đó, Git Tree bao gồm các nhánh đại diện cho các branches, mỗi một node là đại diện cho một lần commit.
@@ -129,6 +139,15 @@ Là nơi tập hợp một trong những nhà phát triển lớn nhất để h
 | Provides user to see project development charts | Doesn't have charts yet but can check commit history |
 
 # 12. Other VSC tool
+## 12.1 Subversion(SVN)
+|                           Git                           |                    Subversion (SVN)               |
+| :-----------------------------------------------------: | :-----------------------------------------------: |
+|         Hệ thống kiểm soát phiên bản phân tán           |     Hệ thống kiểm soát phiên bản tập trung        |
+|              SCM - công cụ quản lý mã nguồn             |        RCS - hệ thống kiểm soát sửa đổi           |
+|        Nội dung được lưu dưới dạng siêu dữ liệu         |         Nội dung được lưu dưới dạng tệp           |
+|        Nội dung được băm bằng mật mã - SHA1             |                    Không có                       |
+|                Kho lưu trữ nhân bản                     |                    Không có                       |
+## 12.2 Concurrent version system (CVS)
 |                           Git                           |          Concurrent version system (CVS)          |
 | :-----------------------------------------------------: | :-----------------------------------------------: |
 |                     Distributed vsc                     |                  Centralized vsc                  |
