@@ -70,7 +70,7 @@ Tạo pull request:
 ![image](https://user-images.githubusercontent.com/59039313/174484355-1b990958-ef90-4330-b58e-d9afb09c3fe3.png)
 
 
-** Merge Request **
+**Merge Request**
 - Merge Request tương tự như Pull Request nhưng được sử dụng trong GitLab còn Pull Request được sử dụng trong GitHub
 
 Tạo Merge Request:
@@ -119,12 +119,13 @@ Refs: #123
 # 14. Branching models
 # 15. Submodule
 # 16. Git tool, extension
-** GitHub Desktop **
+
+**GitHub Desktop**
 - Là ứng dụng cho phép tương tác với github vằng GUI thay vì dòng lệnh hoặc trình duyệt web.
 - Có thể sử dụng Github Desktop để hoàn thành các lệnh git từ màn hình với xác nhận trực quan về thay đổi
 - Có thể push, pull và clone remote repository với github desktop và sử dụng các công cụ như phân bổ commits và tạo pull request
 
-** SourceTree **
+**SourceTree**
 - Công cụ trực quan hóa cho GIT trên Windows/ macOS
 - Phục vụ như sự thay thế thuận tiện cho việc sử dụng Command Prompt để thực hiện các lệnh GIT
 - Có giao diện thân thiện với người dùng trực quan cho phép ngay cả những người dùng GIT thiếu kinh nghiệm cũng có thể tham gia đầy đủ vào toàn bộ quy trình làm việc cộng tác.
