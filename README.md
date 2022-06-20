@@ -5,6 +5,10 @@
 	- [4.1 Git tree](#41-git-tree)
 	- [4.2 Branches](#42-branches)
 - [5. Add, Commit, Merge, Stash](#5-add-commit-merge-stash)
+	- [5.1 Git Add](#51-git-add)
+	- [5.2 Git Commit](#51-git-commit)
+	- [5.3 Git Merge](#51-git-merge)
+	- [5.4 Git Stash](#51-git-stash)
 - [6. Fetch, pull, push](#6-fetch-pull-push)
 	- [6.1 Fetch](#61-fetch)
 	- [6.2 Pull](#62-pull)
@@ -46,6 +50,41 @@ Nhờ có Git Tree, các developers có thể nắm bắt toàn bộ quá trình
  + <code>git checkout -b<new_branch></code>: tạo branch mới có tên new_branch và di chuyển đến branch này.
  + <code>git branch -d<branch_name></code>: xóa branch có tên branch_name.
 # 5. Add, Commit, Merge, Stash
+## 5.1 Git Add
+## 5.2 Git Commit
+## 5.3 Git Merge
++ **Git Merge**:Tích hợp các thay đổi đã thực hiện trên các nhánh, thao tác này thường dùng để merge branch khác vào branch master trước khi push lên remote repository, hoặc merge hai branch thành một để giải quyết chung một task.
++ **Cách dùng:**
+	+ <code>$ git merge <branch_name></code>
+	+ hoặc <code>$ git merge <branch-name> <merged-branch-name></code>
++ **Merge non fast-forward**: Sẽ tạo ra một merge commit giúp cho việc tracking lịch sử nhánh.
+	+ <code>$ git merge --no-ff bugfix <branch_name></code>
++ **Squash merge**: thêm option này vào ta có thể rút gọn các commit của nhánh merge thành 1 commit.
+	+ <code>$ git merge –squash <branch_name></code>
+	
+## 5.4 Git Stash
++ **Git stash**: Được sử dụng khi muốn lưu lại các thay đổi chưa commit, thường rất hữu dụng khi bạn muốn đổi sang 1 branch khác khi đang làm dở ở branch hiện tại.
++ **Git stash save**: Để lưu lại toàn bộ nội dung công việc đang làm dở
+	+ <code>$ git stash save</code>
+	+ hoặc <code>$ git stash</code>
++ **Git stash list** Để xem lại danh sách các stash đã lưu
+	+ <code>$ git stash list</code>
++ Để xem cả nội dung thay đổi của từng stash đã lưu trong danh sách thì thêm **option -p**
+	+ <code>$ git stash list -p</code>
++ **Git stash show <stash-name>**: Để xem nội dung thay đổi của một stash đã lưu
+	+ <code>$ git stash show stash@{1}</code>
++ **Git stash apply <stash-name>**: Để apply lại thay đổi từ một stash đã lưu
+	+ <code>$ git stash apply stash@{1}</code>
++ **Git stash drop <stash-name>**: Để xóa một stash đã lưu
+	+ <code>$ git stash drop stash@{1}</code>
++ Với stash được lưu với ý định không dùng lại nhiều hơn 1 lần thì thường nó sẽ được xóa đi ngay khi được apply.
+	+ <code>$ git stash apply stash@{1}</code>
+	+ <code>$ git stash drop stash@{1}</code>
++ hoặc đơn giản hơn thì dùng
+	+ <code>$ git stash pop stash@{1}</code>
++ **Git stash clear**: Để xoá toàn bộ stack đã lưu
+	+ <code>$ git stash clear</code>
+
 # 6. Fetch, pull, push
 ## 6.1 Fetch
 + Downloads all the latest commits from all branches and also all the new branches from the remote and saves it in the local repo
