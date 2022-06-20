@@ -5,6 +5,10 @@
 	- [4.1 Git tree](#41-git-tree)
 	- [4.2 Branches](#42-branches)
 - [5. Add, Commit, Merge, Stash](#5-add-commit-merge-stash)
+	- [5.1 Git Add](#51-git-add)
+	- [5.2 Git Commit](#52-git-commit)
+	- [5.3 Git Merge](#53-git-merge)
+	- [5.4 Git Stash](#54-git-stash)
 - [6. Fetch, pull, push](#6-fetch-pull-push)
 	- [6.1 Fetch](#61-fetch)
 	- [6.2 Pull](#62-pull)
@@ -19,6 +23,10 @@
 - [12. Other VSC tool](#12-other-vsc-tool)
 - [13. Conventional commits](#13-conventional-commits)
 - [14. Branching models](#14-branching-models)
+	- [14.1 ](#141-git-add)
+	- [14.2 ](#142-git-commit)
+	- [14.3 GitLab Flow](#143-gitlab-flow)
+	- [14.4 Trunk-based development](#144-trunk-based-development)
 - [15. Submodule](#15-submodule)
 - [16. Git tool, extension](#16-git-tool-extension)
 # 1. Introduction
@@ -46,6 +54,41 @@ Nhờ có Git Tree, các developers có thể nắm bắt toàn bộ quá trình
  + <code>git checkout -b<new_branch></code>: tạo branch mới có tên new_branch và di chuyển đến branch này.
  + <code>git branch -d<branch_name></code>: xóa branch có tên branch_name.
 # 5. Add, Commit, Merge, Stash
+## 5.1 Git Add
+## 5.2 Git Commit
+## 5.3 Git Merge
++ **Git Merge**:Tích hợp các thay đổi đã thực hiện trên các nhánh, thao tác này thường dùng để merge branch khác vào branch master trước khi push lên remote repository, hoặc merge hai branch thành một để giải quyết chung một task.
++ **Cách dùng:**
+	+ <code>$ git merge <branch_name></code>
+	+ hoặc <code>$ git merge <branch-name> <merged-branch-name></code>
++ **Merge non fast-forward**: Sẽ tạo ra một merge commit giúp cho việc tracking lịch sử nhánh.
+	+ <code>$ git merge --no-ff bugfix <branch_name></code>
++ **Squash merge**: thêm option này vào ta có thể rút gọn các commit của nhánh merge thành 1 commit.
+	+ <code>$ git merge –squash <branch_name></code>
+	
+## 5.4 Git Stash
++ **Git stash**: Được sử dụng khi muốn lưu lại các thay đổi chưa commit, thường rất hữu dụng khi bạn muốn đổi sang 1 branch khác khi đang làm dở ở branch hiện tại.
++ **Git stash save**: Để lưu lại toàn bộ nội dung công việc đang làm dở
+	+ <code>$ git stash save</code>
+	+ hoặc <code>$ git stash</code>
++ **Git stash list** Để xem lại danh sách các stash đã lưu
+	+ <code>$ git stash list</code>
++ Để xem cả nội dung thay đổi của từng stash đã lưu trong danh sách thì thêm **option -p**
+	+ <code>$ git stash list -p</code>
++ **Git stash show <stash-name>**: Để xem nội dung thay đổi của một stash đã lưu
+	+ <code>$ git stash show stash@{1}</code>
++ **Git stash apply <stash-name>**: Để apply lại thay đổi từ một stash đã lưu
+	+ <code>$ git stash apply stash@{1}</code>
++ **Git stash drop <stash-name>**: Để xóa một stash đã lưu
+	+ <code>$ git stash drop stash@{1}</code>
++ Với stash được lưu với ý định không dùng lại nhiều hơn 1 lần thì thường nó sẽ được xóa đi ngay khi được apply.
+	+ <code>$ git stash apply stash@{1}</code>
+	+ <code>$ git stash drop stash@{1}</code>
++ hoặc đơn giản hơn thì dùng
+	+ <code>$ git stash pop stash@{1}</code>
++ **Git stash clear**: Để xoá toàn bộ stack đã lưu
+	+ <code>$ git stash clear</code>
+
 # 6. Fetch, pull, push
 ## 6.1 Fetch
 + Downloads all the latest commits from all branches and also all the new branches from the remote and saves it in the local repo
@@ -192,6 +235,35 @@ fix: prevent racing of requests
 Introduce a request id and a reference to the latest request. Dismiss incoming responses other than from the latest request.
 Refs: #123
 # 14. Branching models
+## 14.1
+## 14.2
+## 14.3 GitLab Flow
++ **GitLab Flow** là một giải pháp thay thế đơn giản hơn cho Git workflow, kết hợp phát triển theo hướng tính năng và phân nhánh tính năng với theo dõi vấn đề. Với GitFlow, các nhà phát triển tạo nhánh develop và đặt nhánh đó làm mặc định trong khi GitLab Flow hoạt động với nhánh chính từ đầu. GitLab flow thì xoay quanh các nhánh môi trường production, staging...
++ GitLab Flow phù hợp khi ta muốn giữ nhiều môi trường và muốn có 1 môi trường staging tách với môi trường production. Như vậy khi nào nhánh main có thể triển khai, ta có thể merge với nhánh production và phát hành nó.
+			![](https://www.flagship.io/wp-content/uploads/gitlab_flow_environment_branches.png)
++ GitLab Flow phù hợp với tình huống mà ta không thể kiểm soát được thời gian ra mắt sản phẩm, ví dụ như khi một ứng dụng iOS cần được App Store xác thực trước hay như khi ta có các deployment window cụ thể.
+
+## 14.4 Trunk-based development
++ **Trunk-based development**: Core concept của giải pháp này là trunk (thân cây) thay vì nhánh như các mô hình khác. Trong mô hình này tất cả mọi người sẽ commit vào một nhánh chính duy nhất (trunk) thay vì nhiều nhánh cho các tính năng hoặc môi trường khác nhau.
++ **Tích hợp liên tục (CI) và phân phối liên tục (CD)** là 2 yếu tố quan trọng trong Trunk-based development, vì các thay đổi luôn được thực hiện ở trên Trunk. 
++ **CI** là phương pháp phát triển phần mềm yêu cầu các thành viên của team tích hợp công việc của họ thường xuyên, mỗi ngày ít nhất một lần. Mỗi tích hợp được "build" tự động (bao gồm cả test) nhằm phát hiện lỗi nhanh nhất có thể. Cách tiếp cận này giảm thiểu vấn đề tích hợp và cho phép phát triển phần mềm nhanh hơn. Một kịch bản CI bắt đầu bằng việc developer commit code lên repository. Các bước trong một kịch bản CI thường như sau:
+	1 Đầu tiên, developer commit code lên repo.
+	2 CI server giám sát repo và kiểm tra xem liệu có thay đổi nào trên repo hay không (liên tục, chẳng hạn mỗi phút 1 lần)
+	3 Ngay khi commit xảy ra, CI server phát hiện repo có thay đổi, nên nó nhận code mới nhất từ repo và sau đó build, chạy unit và integration test
+	4 CI server sẽ sinh ra các feedback và gửi đến các member của project
+	5 CI server tiếp tục chờ thay đổi ở repo
++ **CD** là hướng tiếp cận để phát hành phần mềm, team sẽ liên tục phát hành các sản phẩm chất lượng thông qua 1 chuỗi kiểm thử tự động. Bằng cách triển khai tất cả thay đổi về code (đã được build và test) đến môi trường testing hoặc staging. CD cho phép developer tự động hóa phần testing bên cạnh việc sử dụng unit test, kiểm tra phần mềm qua nhiều thước đo trước khi triển khai cho khách hàng. 
++ Lợi ích rõ ràng nhất là thời gian tiếp thị nhanh hơn vì code luôn sẵn sàng được triển khai cho người dùng. Nhóm nhận được phản hồi liên tục về sản phẩm từ người dùng và sau đó kết hợp phản hồi này vào bản phát hành tiếp theo.
+			![](https://www.flagship.io/wp-content/uploads/trunk-based-development-branching-strategy.png)
+> “Branches create distance between developers and we do not want that” — Frank Compagner, Guerrilla Games.
++ Khoảng cách ở đây là về khoảng cách để tích hợp code từ nhiều components/modules/sub-teams thành một mã nhị phân để có thể triển khai. Những vấn đề về khoảng cách có thể là:
+	+ Làm hỏng 1 đoạn nào đó không lường trước được khi merge
+	+ Sự khó khăn khi merge
+	+ Không cho thấy rõ các việc bị trùng lặp cho tới khi được merge
+	+ Không cho thấy các vấn đề như code không tương thích nếu không làm hỏng build
++ Trunk-based development là mô hình phân nhánh giảm thiểu các vấn đề này xuống tối thiểu.
++ Một quy tắc chính là Trunk-Based Development teams hoặc là phát hành trực tiếp từ trunk, hoặc là họ tạo một nhánh từ trunk chỉ riêng cho việc phát hành.
+
 # 15. Submodule
 - Trong môi trường phát triển phần mềm, phát triển các dự án lớn, chúng ta không thể gộp tất cả vào một repository trên gitlab hay github được, mà chia thành nhiều module lớn nhỏ khác nhau rồi trong project chính sẽ tiến hành clone source từ các module đó về để chạy.
 - Để thêm một submodule vào project ta sử dụng:
