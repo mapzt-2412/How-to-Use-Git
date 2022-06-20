@@ -112,6 +112,40 @@ Nhờ có Git Tree, các developers có thể nắm bắt toàn bộ quá trình
 
 
 # 7. Pull/merge request
+Pull request được tạo ra để đưa những file source code lên 1 host chung nơi mọi người có quyền truy cập sẽ truy cập vào và cùng review, để lại comment trên những file source code đó.
+
+Quá trình phát triển với pull request:
+- Clone hoặc pull source code
+- Tạo nhánh làm việc
+- Thực hiện các thay đổi như thêm và chỉnh sửa các hàm,...
+- Push sau khi đã hoàn thành
+- Kiểm tra những thay đổi từ pull request được thông báo
+- Review và gửi phản hồi
+- Merge nếu không có vấn đề
+- Đóng pull request
+
+Tạo pull request:
+- Click New Pull Request 
+![image](https://user-images.githubusercontent.com/59039313/174484034-0f298f81-aaac-48ae-ab1c-54331ba585da.png)
+- Chọn nhánh muốn merger với nhánh khác và Click Create Pull Request
+![image](https://user-images.githubusercontent.com/59039313/174484151-2ceb094b-050b-4b93-ad23-62c64988b77b.png)
+- Thêm Title và Description cho Pull Request
+![image](https://user-images.githubusercontent.com/59039313/174484210-8132ed86-3932-4e5e-b1be-3c1fd22cbf2d.png)
+- Click Files Changed để xem những thay đổi của file. Để lại review về file
+![image](https://user-images.githubusercontent.com/59039313/174484313-46c377ed-9487-4c9a-9a6f-8e0dada89876.png)
+- Để lại Comment hoặc là Merge pull quest và đóng pull request
+![image](https://user-images.githubusercontent.com/59039313/174484355-1b990958-ef90-4330-b58e-d9afb09c3fe3.png)
+
+
+**Merge Request**
+- Merge Request tương tự như Pull Request nhưng được sử dụng trong GitLab còn Pull Request được sử dụng trong GitHub
+
+Tạo Merge Request:
+- Chọn Merge Request và chọn New merge request
+![image](https://user-images.githubusercontent.com/59039313/174484722-3f43dc44-8f52-4ee4-b6a0-d76d093b2f87.png)
+- Chọn source và target branch và chọn Compare branches and continue
+![image](https://user-images.githubusercontent.com/59039313/174484758-c422ec39-8ea2-40e2-abeb-51f29c92f237.png)
+- Điền các Fields và click Create merge request
 # 8. Conflict resolve when merge
 # 9. Conflict resolve when pull
 Khi thực hiện pull, conflict sẽ xảy ra khi:
@@ -251,3 +285,13 @@ Refs: #123
 https://user-images.githubusercontent.com/73237028/174479487-a30c600f-b34b-4bea-8a2c-40388021d1d4.mp4
 
 # 16. Git tool, extension
+
+**GitHub Desktop**
+- Là ứng dụng cho phép tương tác với github vằng GUI thay vì dòng lệnh hoặc trình duyệt web.
+- Có thể sử dụng Github Desktop để hoàn thành các lệnh git từ màn hình với xác nhận trực quan về thay đổi
+- Có thể push, pull và clone remote repository với github desktop và sử dụng các công cụ như phân bổ commits và tạo pull request
+
+**SourceTree**
+- Công cụ trực quan hóa cho GIT trên Windows/ macOS
+- Phục vụ như sự thay thế thuận tiện cho việc sử dụng Command Prompt để thực hiện các lệnh GIT
+- Có giao diện thân thiện với người dùng trực quan cho phép ngay cả những người dùng GIT thiếu kinh nghiệm cũng có thể tham gia đầy đủ vào toàn bộ quy trình làm việc cộng tác.
