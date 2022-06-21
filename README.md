@@ -23,8 +23,8 @@
 - [12. Other VSC tool](#12-other-vsc-tool)
 - [13. Conventional commits](#13-conventional-commits)
 - [14. Branching models](#14-branching-models)
-	- [14.1 ](#141-git-add)
-	- [14.2 ](#142-git-commit)
+	- [14.1 GitFlow](#141-gitflow)
+	- [14.2 GitHub Flow](#142-github-flow)
 	- [14.3 GitLab Flow](#143-gitlab-flow)
 	- [14.4 Trunk-based development](#144-trunk-based-development)
 - [15. Submodule](#15-submodule)
@@ -65,7 +65,16 @@ Nhờ có Git Tree, các developers có thể nắm bắt toàn bộ quá trình
  + <code>git branch -d<branch_name></code>: xóa branch có tên branch_name.
 # 5. Add, Commit, Merge, Stash
 ## 5.1 Git Add
++ **Git Add** sẽ đem những thay đổi của các file từ Working Directory sang giai đoạn Staging Area (Index).
++ Câu lệnh:
+	+ Add từng file thay đổi: <code>$git add <file_1> <file_2> ... <file_n></code>
+	+ Add tất cả thay đổi: <code>$git add .</code>
 ## 5.2 Git Commit
++ **Git Commit** sẽ lưu một log message cùng với commit id của thay đổi đó vào local repository.
++ Câu lệnh:
+	+ Commit kèm với một message (cách viết message sẽ tuỳ vào tổ chức): <code>$git commit -m "\<commit message\>"</code>
+	+ Add và Commit: <code>$git commit -a -m "\<commit message\>"</code>
+	+ Nếu thay đổi của một commit quá nhỏ, chúng ta sẽ dùng <code>$git commit --amend</code> để gộp thay đổi đó với commit trước, Git cũng sẽ cho phép chúng ta sửa message của commit trước đó.
 ## 5.3 Git Merge
 + **Git Merge**:Tích hợp các thay đổi đã thực hiện trên các nhánh, thao tác này thường dùng để merge branch khác vào branch master trước khi push lên remote repository, hoặc merge hai branch thành một để giải quyết chung một task.
 + **Cách dùng:**
@@ -257,8 +266,19 @@ fix: prevent racing of requests
 Introduce a request id and a reference to the latest request. Dismiss incoming responses other than from the latest request.
 Refs: #123
 # 14. Branching models
-## 14.1
-## 14.2
+## 14.1 GitFlow
++ **GitFlow** cho phép các lập trình viên lập trình song song. Họ sẽ làm việc trên những nhánh Feature được tạo từ nhánh Master, sau khi hoàn thành tính năng đó, người lập trình viên sẽ merge những thay đổi đó để release. 
++ GitFlow có 2 loại nhánh chính dựa vào vòng đời của nó: Infinite lifetime (Master, Develop) và Short-lived (Feature, Hotfix). Công dụng của các nhánh như sau:
+	+ Master: Nhánh ổn định nhất và là branch chứa source code của bản release mới nhất, đây là nhánh sẽ được Release thành sản phẩm
+	+ Develop: Chứa source code của Feature mới nhất đã được hoàn thành, Feature sau đó sẽ được merge lại vào nhánh Master
+	+ Feature: Được tạo ra khi phát triển một Feature mới, sau khi hoàn thành sẽ được merge vào nhánh Develop
+	+ Hot fix: Được tạo ra khi có lỗi phát sinh sau khi release, sau khi sửa xong sẽ phải merge vào cả nhánh Master và Develop		
+			![](https://www.flagship.io/wp-content/uploads/gitflow-branching-strategy.png)
+## 14.2 GitHub Flow
++ GitHub Flow khá giống với GitFlow nhưng quy trình đơn giản hơn, nó phù hợp đối với các team nhỏ vì họ không cần quản lý nhiều phiên bản.
++ Điểm khác so với GitFlow là khi tổ chức Git bằng mô hình này, sau khi người lập trình viên hoàn thành phát triển tính năng mới trên nhánh Feature, họ sẽ merge trực tiếp vào nhánh Master mà không cần nhánh trung gian là Develop. Nhánh Feature sẽ được xoá sau khi merge. 
++ Mục đích của mô hình này là để nhánh Master luôn ở trạng thái có thể deploy sản phẩm. Chính vì thế, mô hình này phù hợp với phương pháp Agile.
+			![](https://www.flagship.io/wp-content/uploads/github-flow-branching-model.jpeg)
 ## 14.3 GitLab Flow
 + **GitLab Flow** là một giải pháp thay thế đơn giản hơn cho Git workflow, kết hợp phát triển theo hướng tính năng và phân nhánh tính năng với theo dõi vấn đề. Với GitFlow, các nhà phát triển tạo nhánh develop và đặt nhánh đó làm mặc định trong khi GitLab Flow hoạt động với nhánh chính từ đầu. GitLab flow thì xoay quanh các nhánh môi trường production, staging...
 + GitLab Flow phù hợp khi ta muốn giữ nhiều môi trường và muốn có 1 môi trường staging tách với môi trường production. Như vậy khi nào nhánh main có thể triển khai, ta có thể merge với nhánh production và phát hành nó.
