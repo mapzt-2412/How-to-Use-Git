@@ -157,6 +157,9 @@ Tạo Merge Request:
 ![image](https://user-images.githubusercontent.com/59039313/174484758-c422ec39-8ea2-40e2-abeb-51f29c92f237.png)
 - Điền các Fields và click Create merge request
 # 8. Conflict resolve when merge
+- Trong một hệ thống kiểm soát nguồn như Git, xung đột có thể xảy ra khi hai hoặc nhiều người thay đổi cùng một file. Lúc này Git sẽ không biết phải chọn phiên bản nào nên dẫn đến xung đột. Các xung đột có thể xuất hiện tại local repo hoặc remote repo.
+- Khi xung đột xảy ra, Git sẽ đánh dấu file bị xung đột và tạm dừng quá trình merge. Sau đó, trách nhiệm của dev là giải quyết xung đột dựa trên những gì Git đã đánh dấu.
+- Cách trực tiếp nhất để giải quyết xung đột khi merge là chỉnh sửa file bị xung đột sau đó thực hiện add, commit như bình thường.
 # 9. Conflict resolve when pull
 Khi thực hiện pull, conflict sẽ xảy ra khi:
 -Sửa đổi một tệp trong thư mục làm việc và commit
